@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
+    //MARK: IBOutlets listed here.
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var imagePickerView: UIImageView!
