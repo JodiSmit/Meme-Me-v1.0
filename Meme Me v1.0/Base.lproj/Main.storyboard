@@ -52,7 +52,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mob-jG-r57" userLabel="topText">
-                                <rect key="frame" x="16" y="106" width="343" height="17"/>
+                                <rect key="frame" x="16" y="84" width="343" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -69,7 +69,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="8Ha-Lq-wUa">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" id="j2V-5z-ntV"/>
+                                                <action selector="cancelButtonPressed:" destination="BYZ-38-t0r" id="aX6-nW-gyh"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -85,7 +85,7 @@
                             <constraint firstItem="mob-jG-r57" firstAttribute="trailing" secondItem="Sw2-X0-jTH" secondAttribute="trailing" id="HDz-ex-1DZ"/>
                             <constraint firstAttribute="trailing" secondItem="IBf-2b-d3a" secondAttribute="trailing" id="KBo-qU-QNL"/>
                             <constraint firstItem="6pT-aP-sGp" firstAttribute="top" secondItem="Sw2-X0-jTH" secondAttribute="bottom" constant="17" id="LXa-KJ-oJ3"/>
-                            <constraint firstItem="mob-jG-r57" firstAttribute="top" secondItem="IBf-2b-d3a" secondAttribute="bottom" constant="34" id="Uq9-Vi-YcG"/>
+                            <constraint firstItem="mob-jG-r57" firstAttribute="top" secondItem="IBf-2b-d3a" secondAttribute="bottom" constant="12" id="Uq9-Vi-YcG"/>
                             <constraint firstItem="IBf-2b-d3a" firstAttribute="leading" secondItem="6pT-aP-sGp" secondAttribute="leading" id="Vqq-4f-pJL"/>
                             <constraint firstItem="6pT-aP-sGp" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="h2P-lL-Wbj"/>
                             <constraint firstItem="IBf-2b-d3a" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="28" id="hX4-PI-YPj"/>

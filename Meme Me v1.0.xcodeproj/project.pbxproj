@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63DDE5DC1E2FDA4100CD4F26 /* SavedMeme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DDE5DB1E2FDA4100CD4F26 /* SavedMeme.swift */; };
 		63F31B091E26A2AE00B83FB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31B081E26A2AE00B83FB8 /* AppDelegate.swift */; };
 		63F31B0B1E26A2AE00B83FB8 /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F31B0A1E26A2AE00B83FB8 /* MemeEditorViewController.swift */; };
 		63F31B0E1E26A2AE00B83FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F31B0C1E26A2AE00B83FB8 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63DDE5DB1E2FDA4100CD4F26 /* SavedMeme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedMeme.swift; sourceTree = "<group>"; };
 		63F31B051E26A2AD00B83FB8 /* Meme Me v1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme Me v1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F31B081E26A2AE00B83FB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63F31B0A1E26A2AE00B83FB8 /* MemeEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				63F31B0F1E26A2AE00B83FB8 /* Assets.xcassets */,
 				63F31B111E26A2AE00B83FB8 /* LaunchScreen.storyboard */,
 				63F31B141E26A2AE00B83FB8 /* Info.plist */,
+				63DDE5DB1E2FDA4100CD4F26 /* SavedMeme.swift */,
 			);
 			path = "Meme Me v1.0";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DDE5DC1E2FDA4100CD4F26 /* SavedMeme.swift in Sources */,
 				63F31B0B1E26A2AE00B83FB8 /* MemeEditorViewController.swift in Sources */,
 				63F31B091E26A2AE00B83FB8 /* AppDelegate.swift in Sources */,
 			);

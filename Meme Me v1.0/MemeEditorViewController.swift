@@ -22,33 +22,27 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     var memedImage: UIImage!
     
-    struct SavedMeme {
-        var savedTop: String?
-        var savedBottom: String?
-        var origImage: UIImage?
-        var memedImage: UIImage!
-    }
-    
-    override func viewDidLoad() {
+       override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Text Attributes:
-        let memeTextAttributes:[String: Any] = [NSForegroundColorAttributeName: UIColor.white, NSStrokeColorAttributeName: UIColor.black, NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!, NSStrokeWidthAttributeName: -5.0]
-        
-        topText.defaultTextAttributes = memeTextAttributes
-        topText.textAlignment = .center
-        topText.text = "TOP"
-        topText.returnKeyType = .done
-        topText.textColor = UIColor.white
-        self.topText.delegate = self
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.textAlignment = .center
-        bottomText.text = "BOTTOM"
-        bottomText.returnKeyType = .done
-        self.bottomText.delegate = self
+        shareButton.isEnabled = false
+        setTextFieldAttributes(textfield: topText, text: "TOP")
+        setTextFieldAttributes(textfield: bottomText, text: "BOTTOM")
         
     }
-
+    
+    //MARK: Text Attributes:
+    func setTextFieldAttributes(textfield: UITextField, text: String) {
+        
+        let memeTextAttributes:[String: Any] = [NSForegroundColorAttributeName: UIColor.white, NSStrokeColorAttributeName: UIColor.black, NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!, NSStrokeWidthAttributeName: -5.0]
+        
+        textfield.defaultTextAttributes = memeTextAttributes
+        textfield.textAlignment = .center
+        textfield.returnKeyType = .done
+        textfield.delegate = self
+        textfield.text = text
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -65,26 +59,37 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         unsubscribeFromKeyboardNotifications()
     }
     
+    //MARK: IBActions
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .photoLibrary
-        present(pickerController, animated: true, completion: nil)
-        
+        pickImage(sourceType: .photoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .camera
-        present(pickerController, animated: true, completion: nil)
+        pickImage(sourceType: .camera)
     }
     
-   
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        imagePickerView.image = nil
+        topText.text = "TOP"
+        bottomText.text = "BOTTOM"
+        shareButton.isEnabled = false
+    }
+
+
+    
+    //MARK: Function to use either photolibrary or camera in IBActions above.
+    func pickImage(sourceType: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.contentMode = .scaleAspectFit
             imagePickerView.image = pickedImage
+            shareButton.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }
@@ -111,21 +116,23 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
+    //MARK: Function to move keyboard when typing.
     func keyboardWillShow(_ notification:Notification) {
         if bottomText.isFirstResponder {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
         else if topText.isFirstResponder {
-            self.view.frame.origin.y = 0
+            view.frame.origin.y = 0
         }
     }
     
     func keyboardWillHide(_ notification: NSNotification) {
             if bottomText.isFirstResponder {
-                self.view.frame.origin.y = 0
+                view.frame.origin.y = 0
             }
     }
 
+    //MARK: Function that generates the final memed image
     func generateMemedImage() -> UIImage {
         
         topNavBar.isHidden = true
@@ -158,7 +165,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             }
         }
         
-        self.present(activityVC, animated: true, completion: nil)
+        present(activityVC, animated: true, completion: nil)
     }
 
 }
